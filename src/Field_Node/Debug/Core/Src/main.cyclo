@@ -6,8 +6,8 @@
 ../Core/Src/main.c:242:6:SendResetCommandToRS41	1
 ../Core/Src/main.c:274:6:SendResetResponse	2
 ../Core/Src/main.c:309:6:SendTelemetryResponse	3
-../Core/Src/main.c:351:6:ProcessLoRaCommand	4
-../Core/Src/main.c:381:6:Radio_Init	1
-../Core/Src/main.c:414:6:RadioOnDioIrq	7
-../Core/Src/main.c:487:9:calculate_checksum	2
-../Core/Src/main.c:501:6:Error_Handler	1
+../Core/Src/main.c:352:6:ProcessLoRaCommand	4
+../Core/Src/main.c:382:6:Radio_Init	1
+../Core/Src/main.c:415:6:RadioOnDioIrq	7
+../Core/Src/main.c:488:9:calculate_checksum	2
+../Core/Src/main.c:502:6:Error_Handler	1

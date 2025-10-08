@@ -315,6 +315,7 @@ void SendTelemetryResponse(void)
 
     if (!telemetry_available) {
         printf("WARN: Nenhuma telemetria disponível.\r\n");
+        SUBGRF_SetRx(0);
         return;
     }
 
