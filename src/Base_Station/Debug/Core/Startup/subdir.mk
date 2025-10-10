@@ -16,7 +16,7 @@ S_DEPS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 Core/Startup/%.o: ../Core/Startup/%.s Core/Startup/subdir.mk
-	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -I"/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/Firmware/LoRa_Base/Drivers/BSP/STM32WLxx_Nucleo" -I"/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/Firmware/LoRa_Base/Core/Inc" -I"/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/Firmware/LoRa_Base/Radio" -I"/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/Firmware/LoRa_Base/Utils" -I"/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/Firmware/LoRa_Base/Utils/misc" -I"/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/Firmware/LoRa_Base/Utils/conf" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -I"C:/GitHub/stm32-lora-telemetry-relay/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo" -I"C:/GitHub/stm32-lora-telemetry-relay/src/Base_Station/Core/Inc" -I"C:/GitHub/stm32-lora-telemetry-relay/src/Base_Station/Radio" -I"C:/GitHub/stm32-lora-telemetry-relay/src/Base_Station/Utils" -I"C:/GitHub/stm32-lora-telemetry-relay/src/Base_Station/Utils/misc" -I"C:/GitHub/stm32-lora-telemetry-relay/src/Base_Station/Utils/conf" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@" "$<"
 
 clean: clean-Core-2f-Startup
 
