@@ -63,8 +63,8 @@ all: main-build
 main-build: LoRa_Base.elf secondary-outputs
 
 # Tool invocations
-LoRa_Base.elf LoRa_Base.map: $(OBJS) $(USER_OBJS) C:\GitHub\stm32-lora-telemetry-relay\src\Base_Station\STM32WL55JCIX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "LoRa_Base.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\GitHub\stm32-lora-telemetry-relay\src\Base_Station\STM32WL55JCIX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LoRa_Base.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+LoRa_Base.elf LoRa_Base.map: $(OBJS) $(USER_OBJS) /home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/STM32WL55JCIX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "LoRa_Base.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/STM32WL55JCIX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LoRa_Base.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

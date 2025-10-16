@@ -78,6 +78,7 @@ enum ParserState currentState = AWAITING_SYNC;
 LoRaPayload_t latest_telemetry; // Última telemetria válida da radiosonda
 volatile bool telemetry_available = false; // Flag indicando se há telemetria válida
 volatile bool lora_tx_busy = false; // Flag para controlar transmissão LoRa
+volatile bool packet_processed_this_dma_cycle = false;
 
 // Array de lookup para Bandwidth
 const RadioLoRaBandwidths_t Bandwidths[] = { LORA_BW_125, LORA_BW_250, LORA_BW_500 };
@@ -92,6 +93,7 @@ void TransmitTelemetry(void);
 uint8_t calculate_checksum(uint8_t* data, int length);
 void RadioOnDioIrq(RadioIrqMasks_t radioIrq);
 void Start_DMA_Reception_With_Interrupts(void);
+void Reset_UART_And_Parser_State(void); // <-- ADD THIS LINE
 /* USER CODE END PFP */
 
 /**
@@ -198,13 +200,26 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
   if (huart->Instance == USART1)
   {
+    // Reset the flag at the beginning of every new data chunk event
+    packet_processed_this_dma_cycle = false;
+
     uint16_t write_pos = RADIOSONDE_UART_BUFFER_SIZE - __HAL_DMA_GET_COUNTER(huart->hdmarx);
 
-    // Processa todos os bytes que chegaram
+    // Process all the bytes that just arrived
     while (read_pos != write_pos)
     {
       ProcessByte(radiosonde_rx_buffer[read_pos]);
       read_pos = (read_pos + 1) % RADIOSONDE_UART_BUFFER_SIZE;
+    }
+
+    // --- NEW RECOVERY LOGIC ---
+    // If we processed the whole chunk and didn't find a single valid packet,
+    // it's highly likely the buffer contains garbage from a device reset.
+    if (!packet_processed_this_dma_cycle && currentState == AWAITING_SYNC)
+    {
+        printf("WARN: Invalid data chunk detected. Resetting parser and DMA...\r\n");
+        // Use the same reset function we created before
+        Reset_UART_And_Parser_State();
     }
   }
 }
@@ -240,6 +255,7 @@ void ProcessByte(uint8_t receivedByte)
         if (receivedChecksum == calculatedChecksum) {
           memcpy(&latest_telemetry, payloadBuffer, TELEMETRY_PAYLOAD_SIZE);
           telemetry_available = true;
+          packet_processed_this_dma_cycle = true;
 
           printf("Pacote da radiosonda validado. Transmitindo via LoRa...\r\n");
           BSP_LED_Toggle(LED_GREEN); // MUDANÇA 3: O LED só pisca aqui, como resposta a um evento.
@@ -326,20 +342,45 @@ void RadioOnDioIrq(RadioIrqMasks_t radioIrq)
             lora_tx_busy = false;
 
             // Transmissão concluída. Coloca o rádio em standby para economizar energia.
-            // O MCU voltará a dormir no loop principal.
             SUBGRF_SetStandby(STDBY_RC);
+
+            // MODIFICATION: Reset the system to await the next packet
+            Reset_UART_And_Parser_State();
             break;
 
         case IRQ_RX_TX_TIMEOUT:
             printf("WARN: LoRa TX Timeout.\r\n");
             lora_tx_busy = false;
             SUBGRF_SetStandby(STDBY_RC);
+
+            // Also reset on timeout to be safe
+            Reset_UART_And_Parser_State();
             break;
 
         default:
             // Outras interrupções (como RX_DONE) são ignoradas
             break;
     }
+}
+
+void Reset_UART_And_Parser_State(void)
+{
+  // 1. Stop the current DMA reception to safely modify buffers
+  HAL_UART_DMAStop(&huart1);
+
+  // 2. Clear out the buffers to prevent processing old/partial data
+  memset(radiosonde_rx_buffer, 0, RADIOSONDE_UART_BUFFER_SIZE);
+  memset(payloadBuffer, 0, TELEMETRY_PAYLOAD_SIZE);
+
+  // 3. Reset the software parser state variables
+  read_pos = 0;
+  byteCounter = 0;
+  currentState = AWAITING_SYNC;
+
+  // 4. Restart DMA reception with Idle Line interrupt for the next packet
+  Start_DMA_Reception_With_Interrupts();
+
+  printf("SYSTEM RESET: Ready for next radiosonde packet.\r\n");
 }
 
 /**
