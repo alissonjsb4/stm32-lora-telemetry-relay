@@ -1,0 +1,4 @@
+/home/danilo-alencar/Documents/GitHub/UHF_LoRa/CMakeFiles/RS41HUP.elf.dir
+/home/danilo-alencar/Documents/GitHub/UHF_LoRa/CMakeFiles/program.dir
+/home/danilo-alencar/Documents/GitHub/UHF_LoRa/CMakeFiles/edit_cache.dir
+/home/danilo-alencar/Documents/GitHub/UHF_LoRa/CMakeFiles/rebuild_cache.dir

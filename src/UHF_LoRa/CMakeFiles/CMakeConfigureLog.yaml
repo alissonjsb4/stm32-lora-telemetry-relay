@@ -1,0 +1,12 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:228 (message)"
+      - "CMakeLists.txt:21 (project)"
+    message: |
+      The target system is: Generic - 1 - 
+      The host system is: Linux - 6.8.0-71-generic - x86_64
+...
