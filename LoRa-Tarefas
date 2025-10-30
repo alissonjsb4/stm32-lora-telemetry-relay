@@ -1,0 +1,17 @@
+LoRa
+
+1. Teste de Low Power -> Determinar a autonomia da placa e qual deverá ser a bateria que alimentará o sistema pensando no tempo de vôo
+
+2. Verificar e ajustar o código dos sensores -> Estão enviando valores errados de temperatura e tensão
+
+3. Fazer o teste com a RS41 em céu aberto para validar que a comunicação com o GPS funciona em visada direta
+
+4. Após a entrega da semana que vem (06/11), o professor Danilo irá pegar de volta a placa dele pra iniciar o repositório com o novo firmware da RS41, pelo STM32CubeIDE -> Início do desenvolvimento do próximo firmware*
+
+5. Ajeitar a placa que deu problema na gravação*
+
+6. Fazer o case que irá comportar a RS41 e a WL55, e fazer o circuito da placa que irá conectar elas duas*
+
+7. Mover o registro de packet id's da RS41 pra placa Ponte WL55*
+
+8. Acertar o protocolo de comunicação com a parte da nossa interface*
