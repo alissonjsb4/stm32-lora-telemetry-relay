@@ -37,17 +37,17 @@ Radio/radio_board_if.o: ../Radio/radio_board_if.c \
  ../Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h \
  ../Core/Inc/main.h \
  ../Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h \
- /home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_radio.h \
- /home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_errno.h \
- /home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_conf.h \
- /home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo.h \
- /home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Radio/radio_driver.h \
- /home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Radio/radio_conf.h \
+ /home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_radio.h \
+ /home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_errno.h \
+ /home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_conf.h \
+ /home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo.h \
+ /home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Radio/radio_driver.h \
+ /home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Radio/radio_conf.h \
  ../Core/Inc/subghz.h \
- /home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Utils/misc/stm32_mem.h \
- /home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Utils/conf/utilities_conf.h \
+ /home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Utils/misc/stm32_mem.h \
+ /home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Utils/conf/utilities_conf.h \
  ../Drivers/CMSIS/Include/cmsis_compiler.h \
- /home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Radio/radio_board_if.h
+ /home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Radio/radio_board_if.h
 ../Radio/radio_board_if.h:
 ../Core/Inc/platform.h:
 ../Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h:
@@ -87,14 +87,14 @@ Radio/radio_board_if.o: ../Radio/radio_board_if.c \
 ../Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h:
-/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_radio.h:
-/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_errno.h:
-/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_conf.h:
-/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo.h:
-/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Radio/radio_driver.h:
-/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Radio/radio_conf.h:
+/home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_radio.h:
+/home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_errno.h:
+/home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_conf.h:
+/home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo.h:
+/home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Radio/radio_driver.h:
+/home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Radio/radio_conf.h:
 ../Core/Inc/subghz.h:
-/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Utils/misc/stm32_mem.h:
-/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Utils/conf/utilities_conf.h:
+/home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Utils/misc/stm32_mem.h:
+/home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Utils/conf/utilities_conf.h:
 ../Drivers/CMSIS/Include/cmsis_compiler.h:
-/home/danilo-alencar/Documents/GitHub/Projeto_LoRa/src/Base_Station/Radio/radio_board_if.h:
+/home/master/Desktop/stm32-lora-telemetry-relay/src/Base_Station/Radio/radio_board_if.h:

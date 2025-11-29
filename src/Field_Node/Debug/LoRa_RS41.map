@@ -1942,7 +1942,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x45a ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_dma_ex.o
  .debug_macro   0x00000000      0x3c0 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_dma_ex.o
  .debug_line    0x00000000      0x8c3 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_dma_ex.o
- .debug_str     0x00000000    0xa9f4a ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_dma_ex.o
+ .debug_str     0x00000000    0xa9f47 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_dma_ex.o
  .comment       0x00000000       0x44 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_dma_ex.o
  .debug_frame   0x00000000       0xd4 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_dma_ex.o
  .ARM.attributes
@@ -2070,7 +2070,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x45a ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_exti.o
  .debug_macro   0x00000000      0x3c0 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_exti.o
  .debug_line    0x00000000      0xa9b ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_exti.o
- .debug_str     0x00000000    0xa9d9b ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_exti.o
+ .debug_str     0x00000000    0xa9d98 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_exti.o
  .comment       0x00000000       0x44 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_exti.o
  .debug_frame   0x00000000      0x174 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_exti.o
  .ARM.attributes
@@ -2209,7 +2209,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x45a ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_flash.o
  .debug_macro   0x00000000      0x3c0 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_flash.o
  .debug_line    0x00000000      0xa89 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_flash.o
- .debug_str     0x00000000    0xa9e33 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_flash.o
+ .debug_str     0x00000000    0xa9e30 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_flash.o
  .comment       0x00000000       0x44 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_flash.o
  .debug_frame   0x00000000      0x220 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_flash.o
  .ARM.attributes
@@ -2391,7 +2391,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x45a ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_flash_ex.o
  .debug_macro   0x00000000      0x3c0 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_flash_ex.o
  .debug_line    0x00000000      0xe0b ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_flash_ex.o
- .debug_str     0x00000000    0xaa221 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_flash_ex.o
+ .debug_str     0x00000000    0xaa21e ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_flash_ex.o
  .comment       0x00000000       0x44 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_flash_ex.o
  .debug_frame   0x00000000      0x534 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_flash_ex.o
  .ARM.attributes
@@ -4102,8 +4102,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x20 ./Utils/misc/stm32_mem.o
  .debug_macro   0x00000000       0xf4 ./Utils/misc/stm32_mem.o
  .debug_macro   0x00000000       0x10 ./Utils/misc/stm32_mem.o
- .debug_line    0x00000000      0x5ed ./Utils/misc/stm32_mem.o
- .debug_str     0x00000000     0x8981 ./Utils/misc/stm32_mem.o
+ .debug_line    0x00000000      0x5ea ./Utils/misc/stm32_mem.o
+ .debug_str     0x00000000     0x897e ./Utils/misc/stm32_mem.o
  .comment       0x00000000       0x44 ./Utils/misc/stm32_mem.o
  .debug_frame   0x00000000       0x88 ./Utils/misc/stm32_mem.o
  .ARM.attributes
@@ -6257,7 +6257,7 @@ LOAD /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.
  .debug_rnglists
                 0x00000f2b      0x1b6 ./Radio/radio_driver.o
 
-.debug_macro    0x00000000    0x1f7f6
+.debug_macro    0x00000000    0x1f7f0
  .debug_macro   0x00000000      0x237 ./Core/Src/dma.o
  .debug_macro   0x00000237      0xad2 ./Core/Src/dma.o
  .debug_macro   0x00000d09      0x124 ./Core/Src/dma.o
@@ -6307,155 +6307,155 @@ LOAD /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.
  .debug_macro   0x00019961      0x3c0 ./Core/Src/dma.o
  .debug_macro   0x00019d21       0x4c ./Core/Src/dma.o
  .debug_macro   0x00019d6d      0x237 ./Core/Src/gpio.o
- .debug_macro   0x00019fa4      0x426 ./Core/Src/main.o
- .debug_macro   0x0001a3ca       0x52 ./Core/Src/main.o
- .debug_macro   0x0001a41c       0x1c ./Core/Src/main.o
- .debug_macro   0x0001a438      0x13f ./Core/Src/main.o
- .debug_macro   0x0001a577       0x61 ./Core/Src/main.o
- .debug_macro   0x0001a5d8       0x24 ./Core/Src/main.o
- .debug_macro   0x0001a5fc       0x43 ./Core/Src/main.o
- .debug_macro   0x0001a63f       0x34 ./Core/Src/main.o
- .debug_macro   0x0001a673      0x370 ./Core/Src/main.o
- .debug_macro   0x0001a9e3       0x16 ./Core/Src/main.o
- .debug_macro   0x0001a9f9       0x4a ./Core/Src/main.o
- .debug_macro   0x0001aa43       0x34 ./Core/Src/main.o
- .debug_macro   0x0001aa77       0x10 ./Core/Src/main.o
- .debug_macro   0x0001aa87       0x58 ./Core/Src/main.o
- .debug_macro   0x0001aadf       0x8e ./Core/Src/main.o
- .debug_macro   0x0001ab6d       0x1c ./Core/Src/main.o
- .debug_macro   0x0001ab89      0x185 ./Core/Src/main.o
- .debug_macro   0x0001ad0e       0x10 ./Core/Src/main.o
- .debug_macro   0x0001ad1e       0x3c ./Core/Src/main.o
- .debug_macro   0x0001ad5a       0x20 ./Core/Src/main.o
- .debug_macro   0x0001ad7a       0x1c ./Core/Src/main.o
- .debug_macro   0x0001ad96       0x10 ./Core/Src/main.o
- .debug_macro   0x0001ada6       0x1c ./Core/Src/main.o
- .debug_macro   0x0001adc2       0x16 ./Core/Src/main.o
- .debug_macro   0x0001add8      0x146 ./Core/Src/main.o
- .debug_macro   0x0001af1e       0x22 ./Core/Src/main.o
- .debug_macro   0x0001af40       0x10 ./Core/Src/main.o
- .debug_macro   0x0001af50      0x14a ./Core/Src/main.o
- .debug_macro   0x0001b09a       0xbe ./Core/Src/main.o
- .debug_macro   0x0001b158       0xf4 ./Core/Src/main.o
- .debug_macro   0x0001b24c       0x10 ./Core/Src/main.o
- .debug_macro   0x0001b25c       0x1c ./Core/Src/main.o
- .debug_macro   0x0001b278       0x62 ./Core/Src/main.o
- .debug_macro   0x0001b2da      0x28c ./Core/Src/main.o
- .debug_macro   0x0001b566       0x16 ./Core/Src/main.o
- .debug_macro   0x0001b57c      0x22d ./Core/Src/stm32wlxx_hal_msp.o
- .debug_macro   0x0001b7a9      0x237 ./Core/Src/stm32wlxx_it.o
- .debug_macro   0x0001b9e0      0x237 ./Core/Src/subghz.o
- .debug_macro   0x0001bc17      0x274 ./Core/Src/syscalls.o
- .debug_macro   0x0001be8b       0x5b ./Core/Src/syscalls.o
- .debug_macro   0x0001bee6       0x94 ./Core/Src/syscalls.o
- .debug_macro   0x0001bf7a       0x57 ./Core/Src/syscalls.o
- .debug_macro   0x0001bfd1       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x0001bfe1       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x0001bff1       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x0001c001       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x0001c011       0x1c ./Core/Src/syscalls.o
- .debug_macro   0x0001c02d       0x52 ./Core/Src/syscalls.o
- .debug_macro   0x0001c07f       0x22 ./Core/Src/syscalls.o
- .debug_macro   0x0001c0a1       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x0001c0b1       0x52 ./Core/Src/syscalls.o
- .debug_macro   0x0001c103       0xcf ./Core/Src/syscalls.o
- .debug_macro   0x0001c1d2       0x1c ./Core/Src/syscalls.o
- .debug_macro   0x0001c1ee       0x3d ./Core/Src/syscalls.o
- .debug_macro   0x0001c22b       0x35 ./Core/Src/syscalls.o
- .debug_macro   0x0001c260      0x12c ./Core/Src/syscalls.o
- .debug_macro   0x0001c38c       0x16 ./Core/Src/syscalls.o
- .debug_macro   0x0001c3a2       0x16 ./Core/Src/syscalls.o
- .debug_macro   0x0001c3b8       0x29 ./Core/Src/syscalls.o
- .debug_macro   0x0001c3e1       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x0001c3f1      0x242 ./Core/Src/syscalls.o
- .debug_macro   0x0001c633       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x0001c643      0x18a ./Core/Src/syscalls.o
- .debug_macro   0x0001c7cd       0x16 ./Core/Src/syscalls.o
- .debug_macro   0x0001c7e3       0xce ./Core/Src/syscalls.o
- .debug_macro   0x0001c8b1      0x112 ./Core/Src/sysmem.o
- .debug_macro   0x0001c9c3      0x23c ./Core/Src/sysmem.o
- .debug_macro   0x0001cbff      0x21e ./Core/Src/system_stm32wlxx.o
- .debug_macro   0x0001ce1d      0x237 ./Core/Src/usart.o
- .debug_macro   0x0001d054      0x245 ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo.o
- .debug_macro   0x0001d299       0x16 ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo.o
- .debug_macro   0x0001d2af      0x245 ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_radio.o
- .debug_macro   0x0001d4f4       0xb8 ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_radio.o
- .debug_macro   0x0001d5ac      0x242 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal.o
- .debug_macro   0x0001d7ee      0x21e ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_cortex.o
- .debug_macro   0x0001da0c      0x21e ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_dma.o
- .debug_macro   0x0001dc2a      0x224 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_gpio.o
- .debug_macro   0x0001de4e      0x278 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_pwr.o
- .debug_macro   0x0001e0c6      0x230 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_pwr_ex.o
- .debug_macro   0x0001e2f6      0x27e ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rcc.o
- .debug_macro   0x0001e574      0x230 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rcc_ex.o
- .debug_macro   0x0001e7a4      0x250 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_subghz.o
- .debug_macro   0x0001e9f4      0x249 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart.o
- .debug_macro   0x0001ec3d      0x22a ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart_ex.o
- .debug_macro   0x0001ee67      0x3d5 ./Radio/radio_board_if.o
- .debug_macro   0x0001f23c       0x52 ./Radio/radio_board_if.o
- .debug_macro   0x0001f28e      0x145 ./Radio/radio_board_if.o
- .debug_macro   0x0001f3d3       0x16 ./Radio/radio_board_if.o
- .debug_macro   0x0001f3e9       0x16 ./Radio/radio_board_if.o
- .debug_macro   0x0001f3ff       0x16 ./Radio/radio_board_if.o
- .debug_macro   0x0001f415       0x16 ./Radio/radio_board_if.o
- .debug_macro   0x0001f42b      0x3cb ./Radio/radio_driver.o
+ .debug_macro   0x00019fa4      0x3fc ./Core/Src/main.o
+ .debug_macro   0x0001a3a0       0x52 ./Core/Src/main.o
+ .debug_macro   0x0001a3f2       0x1c ./Core/Src/main.o
+ .debug_macro   0x0001a40e      0x13f ./Core/Src/main.o
+ .debug_macro   0x0001a54d       0x61 ./Core/Src/main.o
+ .debug_macro   0x0001a5ae       0x24 ./Core/Src/main.o
+ .debug_macro   0x0001a5d2       0x43 ./Core/Src/main.o
+ .debug_macro   0x0001a615       0x34 ./Core/Src/main.o
+ .debug_macro   0x0001a649      0x370 ./Core/Src/main.o
+ .debug_macro   0x0001a9b9       0x16 ./Core/Src/main.o
+ .debug_macro   0x0001a9cf       0x4a ./Core/Src/main.o
+ .debug_macro   0x0001aa19       0x34 ./Core/Src/main.o
+ .debug_macro   0x0001aa4d       0x10 ./Core/Src/main.o
+ .debug_macro   0x0001aa5d       0x58 ./Core/Src/main.o
+ .debug_macro   0x0001aab5       0x8e ./Core/Src/main.o
+ .debug_macro   0x0001ab43       0x1c ./Core/Src/main.o
+ .debug_macro   0x0001ab5f      0x185 ./Core/Src/main.o
+ .debug_macro   0x0001ace4       0x10 ./Core/Src/main.o
+ .debug_macro   0x0001acf4       0x3c ./Core/Src/main.o
+ .debug_macro   0x0001ad30       0x20 ./Core/Src/main.o
+ .debug_macro   0x0001ad50       0x1c ./Core/Src/main.o
+ .debug_macro   0x0001ad6c       0x10 ./Core/Src/main.o
+ .debug_macro   0x0001ad7c       0x1c ./Core/Src/main.o
+ .debug_macro   0x0001ad98       0x16 ./Core/Src/main.o
+ .debug_macro   0x0001adae      0x146 ./Core/Src/main.o
+ .debug_macro   0x0001aef4       0x22 ./Core/Src/main.o
+ .debug_macro   0x0001af16       0x10 ./Core/Src/main.o
+ .debug_macro   0x0001af26      0x14a ./Core/Src/main.o
+ .debug_macro   0x0001b070       0xbe ./Core/Src/main.o
+ .debug_macro   0x0001b12e       0xf4 ./Core/Src/main.o
+ .debug_macro   0x0001b222       0x10 ./Core/Src/main.o
+ .debug_macro   0x0001b232       0x1c ./Core/Src/main.o
+ .debug_macro   0x0001b24e       0x62 ./Core/Src/main.o
+ .debug_macro   0x0001b2b0      0x28c ./Core/Src/main.o
+ .debug_macro   0x0001b53c       0x3a ./Core/Src/main.o
+ .debug_macro   0x0001b576      0x22d ./Core/Src/stm32wlxx_hal_msp.o
+ .debug_macro   0x0001b7a3      0x237 ./Core/Src/stm32wlxx_it.o
+ .debug_macro   0x0001b9da      0x237 ./Core/Src/subghz.o
+ .debug_macro   0x0001bc11      0x274 ./Core/Src/syscalls.o
+ .debug_macro   0x0001be85       0x5b ./Core/Src/syscalls.o
+ .debug_macro   0x0001bee0       0x94 ./Core/Src/syscalls.o
+ .debug_macro   0x0001bf74       0x57 ./Core/Src/syscalls.o
+ .debug_macro   0x0001bfcb       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0001bfdb       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0001bfeb       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0001bffb       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0001c00b       0x1c ./Core/Src/syscalls.o
+ .debug_macro   0x0001c027       0x52 ./Core/Src/syscalls.o
+ .debug_macro   0x0001c079       0x22 ./Core/Src/syscalls.o
+ .debug_macro   0x0001c09b       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0001c0ab       0x52 ./Core/Src/syscalls.o
+ .debug_macro   0x0001c0fd       0xcf ./Core/Src/syscalls.o
+ .debug_macro   0x0001c1cc       0x1c ./Core/Src/syscalls.o
+ .debug_macro   0x0001c1e8       0x3d ./Core/Src/syscalls.o
+ .debug_macro   0x0001c225       0x35 ./Core/Src/syscalls.o
+ .debug_macro   0x0001c25a      0x12c ./Core/Src/syscalls.o
+ .debug_macro   0x0001c386       0x16 ./Core/Src/syscalls.o
+ .debug_macro   0x0001c39c       0x16 ./Core/Src/syscalls.o
+ .debug_macro   0x0001c3b2       0x29 ./Core/Src/syscalls.o
+ .debug_macro   0x0001c3db       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0001c3eb      0x242 ./Core/Src/syscalls.o
+ .debug_macro   0x0001c62d       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0001c63d      0x18a ./Core/Src/syscalls.o
+ .debug_macro   0x0001c7c7       0x16 ./Core/Src/syscalls.o
+ .debug_macro   0x0001c7dd       0xce ./Core/Src/syscalls.o
+ .debug_macro   0x0001c8ab      0x112 ./Core/Src/sysmem.o
+ .debug_macro   0x0001c9bd      0x23c ./Core/Src/sysmem.o
+ .debug_macro   0x0001cbf9      0x21e ./Core/Src/system_stm32wlxx.o
+ .debug_macro   0x0001ce17      0x237 ./Core/Src/usart.o
+ .debug_macro   0x0001d04e      0x245 ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo.o
+ .debug_macro   0x0001d293       0x16 ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo.o
+ .debug_macro   0x0001d2a9      0x245 ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_radio.o
+ .debug_macro   0x0001d4ee       0xb8 ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_radio.o
+ .debug_macro   0x0001d5a6      0x242 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal.o
+ .debug_macro   0x0001d7e8      0x21e ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_cortex.o
+ .debug_macro   0x0001da06      0x21e ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_dma.o
+ .debug_macro   0x0001dc24      0x224 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_gpio.o
+ .debug_macro   0x0001de48      0x278 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_pwr.o
+ .debug_macro   0x0001e0c0      0x230 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_pwr_ex.o
+ .debug_macro   0x0001e2f0      0x27e ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rcc.o
+ .debug_macro   0x0001e56e      0x230 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rcc_ex.o
+ .debug_macro   0x0001e79e      0x250 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_subghz.o
+ .debug_macro   0x0001e9ee      0x249 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart.o
+ .debug_macro   0x0001ec37      0x22a ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart_ex.o
+ .debug_macro   0x0001ee61      0x3d5 ./Radio/radio_board_if.o
+ .debug_macro   0x0001f236       0x52 ./Radio/radio_board_if.o
+ .debug_macro   0x0001f288      0x145 ./Radio/radio_board_if.o
+ .debug_macro   0x0001f3cd       0x16 ./Radio/radio_board_if.o
+ .debug_macro   0x0001f3e3       0x16 ./Radio/radio_board_if.o
+ .debug_macro   0x0001f3f9       0x16 ./Radio/radio_board_if.o
+ .debug_macro   0x0001f40f       0x16 ./Radio/radio_board_if.o
+ .debug_macro   0x0001f425      0x3cb ./Radio/radio_driver.o
 
-.debug_line     0x00000000    0x1566e
+.debug_line     0x00000000    0x15685
  .debug_line    0x00000000      0x74b ./Core/Src/dma.o
  .debug_line    0x0000074b      0x765 ./Core/Src/gpio.o
- .debug_line    0x00000eb0      0xd9e ./Core/Src/main.o
- .debug_line    0x00001c4e      0x9b9 ./Core/Src/stm32wlxx_hal_msp.o
- .debug_line    0x00002607      0x87c ./Core/Src/stm32wlxx_it.o
- .debug_line    0x00002e83      0x734 ./Core/Src/subghz.o
- .debug_line    0x000035b7      0x7e1 ./Core/Src/syscalls.o
- .debug_line    0x00003d98      0x4bd ./Core/Src/sysmem.o
- .debug_line    0x00004255      0x7bc ./Core/Src/system_stm32wlxx.o
- .debug_line    0x00004a11      0x7df ./Core/Src/usart.o
- .debug_line    0x000051f0       0x7b ./Core/Startup/startup_stm32wl55jcix.o
- .debug_line    0x0000526b      0x9ae ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo.o
- .debug_line    0x00005c19      0x87d ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_radio.o
- .debug_line    0x00006496      0xed6 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal.o
- .debug_line    0x0000736c      0xcc3 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_cortex.o
- .debug_line    0x0000802f      0xef3 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_dma.o
- .debug_line    0x00008f22      0xb24 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_gpio.o
- .debug_line    0x00009a46      0x9a2 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_pwr.o
- .debug_line    0x0000a3e8      0xe58 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_pwr_ex.o
- .debug_line    0x0000b240     0x18c9 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rcc.o
- .debug_line    0x0000cb09     0x1584 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rcc_ex.o
- .debug_line    0x0000e08d      0xf41 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_subghz.o
- .debug_line    0x0000efce     0x3571 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart.o
- .debug_line    0x0001253f      0xc99 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart_ex.o
- .debug_line    0x000131d8      0xb92 ./Radio/radio_board_if.o
- .debug_line    0x00013d6a     0x1904 ./Radio/radio_driver.o
+ .debug_line    0x00000eb0      0xdcd ./Core/Src/main.o
+ .debug_line    0x00001c7d      0x9b9 ./Core/Src/stm32wlxx_hal_msp.o
+ .debug_line    0x00002636      0x87c ./Core/Src/stm32wlxx_it.o
+ .debug_line    0x00002eb2      0x734 ./Core/Src/subghz.o
+ .debug_line    0x000035e6      0x7e1 ./Core/Src/syscalls.o
+ .debug_line    0x00003dc7      0x4bd ./Core/Src/sysmem.o
+ .debug_line    0x00004284      0x7bc ./Core/Src/system_stm32wlxx.o
+ .debug_line    0x00004a40      0x7df ./Core/Src/usart.o
+ .debug_line    0x0000521f       0x7b ./Core/Startup/startup_stm32wl55jcix.o
+ .debug_line    0x0000529a      0x9ae ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo.o
+ .debug_line    0x00005c48      0x87d ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_radio.o
+ .debug_line    0x000064c5      0xed6 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal.o
+ .debug_line    0x0000739b      0xcc3 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_cortex.o
+ .debug_line    0x0000805e      0xef3 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_dma.o
+ .debug_line    0x00008f51      0xb24 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_gpio.o
+ .debug_line    0x00009a75      0x9a2 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_pwr.o
+ .debug_line    0x0000a417      0xe58 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_pwr_ex.o
+ .debug_line    0x0000b26f     0x18c9 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rcc.o
+ .debug_line    0x0000cb38     0x1584 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rcc_ex.o
+ .debug_line    0x0000e0bc      0xf41 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_subghz.o
+ .debug_line    0x0000effd     0x3571 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart.o
+ .debug_line    0x0001256e      0xc99 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart_ex.o
+ .debug_line    0x00013207      0xb86 ./Radio/radio_board_if.o
+ .debug_line    0x00013d8d     0x18f8 ./Radio/radio_driver.o
 
-.debug_str      0x00000000    0xb8ea6
- .debug_str     0x00000000    0xb8ea6 ./Core/Src/dma.o
-                              0xaa242 (size before relaxing)
- .debug_str     0x000b8ea6    0xa9ee4 ./Core/Src/gpio.o
- .debug_str     0x000b8ea6    0xb17da ./Core/Src/main.o
- .debug_str     0x000b8ea6    0xaac06 ./Core/Src/stm32wlxx_hal_msp.o
- .debug_str     0x000b8ea6    0xaa3c5 ./Core/Src/stm32wlxx_it.o
- .debug_str     0x000b8ea6    0xa9d46 ./Core/Src/subghz.o
- .debug_str     0x000b8ea6     0x99a5 ./Core/Src/syscalls.o
- .debug_str     0x000b8ea6     0x7743 ./Core/Src/sysmem.o
- .debug_str     0x000b8ea6    0xa9d1d ./Core/Src/system_stm32wlxx.o
- .debug_str     0x000b8ea6    0xaa24b ./Core/Src/usart.o
- .debug_str     0x000b8ea6       0x8c ./Core/Startup/startup_stm32wl55jcix.o
- .debug_str     0x000b8ea6    0xaafda ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo.o
- .debug_str     0x000b8ea6    0xaa588 ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_radio.o
- .debug_str     0x000b8ea6    0xaab05 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal.o
- .debug_str     0x000b8ea6    0xaa43b ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_cortex.o
- .debug_str     0x000b8ea6    0xaa0d2 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_dma.o
- .debug_str     0x000b8ea6    0xa9d76 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_gpio.o
- .debug_str     0x000b8ea6    0xaa175 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_pwr.o
- .debug_str     0x000b8ea6    0xaa4d5 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_pwr_ex.o
- .debug_str     0x000b8ea6    0xaaae9 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rcc.o
- .debug_str     0x000b8ea6    0xaa644 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rcc_ex.o
- .debug_str     0x000b8ea6    0xaa822 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_subghz.o
- .debug_str     0x000b8ea6    0xaad5b ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart.o
- .debug_str     0x000b8ea6    0xaa454 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart_ex.o
- .debug_str     0x000b8ea6    0xb0236 ./Radio/radio_board_if.o
- .debug_str     0x000b8ea6    0xb1c4c ./Radio/radio_driver.o
+.debug_str      0x00000000    0xb8e79
+ .debug_str     0x00000000    0xb8e79 ./Core/Src/dma.o
+                              0xaa23f (size before relaxing)
+ .debug_str     0x000b8e79    0xa9ee1 ./Core/Src/gpio.o
+ .debug_str     0x000b8e79    0xb17ad ./Core/Src/main.o
+ .debug_str     0x000b8e79    0xaac03 ./Core/Src/stm32wlxx_hal_msp.o
+ .debug_str     0x000b8e79    0xaa3c2 ./Core/Src/stm32wlxx_it.o
+ .debug_str     0x000b8e79    0xa9d43 ./Core/Src/subghz.o
+ .debug_str     0x000b8e79     0x99a2 ./Core/Src/syscalls.o
+ .debug_str     0x000b8e79     0x7740 ./Core/Src/sysmem.o
+ .debug_str     0x000b8e79    0xa9d1a ./Core/Src/system_stm32wlxx.o
+ .debug_str     0x000b8e79    0xaa248 ./Core/Src/usart.o
+ .debug_str     0x000b8e79       0x89 ./Core/Startup/startup_stm32wl55jcix.o
+ .debug_str     0x000b8e79    0xaafd7 ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo.o
+ .debug_str     0x000b8e79    0xaa585 ./Drivers/BSP/STM32WLxx_Nucleo/stm32wlxx_nucleo_radio.o
+ .debug_str     0x000b8e79    0xaab02 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal.o
+ .debug_str     0x000b8e79    0xaa438 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_cortex.o
+ .debug_str     0x000b8e79    0xaa0cf ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_dma.o
+ .debug_str     0x000b8e79    0xa9d73 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_gpio.o
+ .debug_str     0x000b8e79    0xaa172 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_pwr.o
+ .debug_str     0x000b8e79    0xaa4d2 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_pwr_ex.o
+ .debug_str     0x000b8e79    0xaaae6 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rcc.o
+ .debug_str     0x000b8e79    0xaa641 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rcc_ex.o
+ .debug_str     0x000b8e79    0xaa81f ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_subghz.o
+ .debug_str     0x000b8e79    0xaad58 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart.o
+ .debug_str     0x000b8e79    0xaa451 ./Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart_ex.o
+ .debug_str     0x000b8e79    0xb0233 ./Radio/radio_board_if.o
+ .debug_str     0x000b8e79    0xb1c49 ./Radio/radio_driver.o
 
 .comment        0x00000000       0x43
  .comment       0x00000000       0x43 ./Core/Src/dma.o
@@ -6578,6 +6578,6 @@ LOAD /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.
  .debug_frame   0x00007098       0x34 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
 
 .debug_line_str
-                0x00000000       0x70
+                0x00000000       0x6d
  .debug_line_str
-                0x00000000       0x70 ./Core/Startup/startup_stm32wl55jcix.o
+                0x00000000       0x6d ./Core/Startup/startup_stm32wl55jcix.o

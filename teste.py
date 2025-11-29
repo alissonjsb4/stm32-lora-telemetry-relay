@@ -1,9 +1,9 @@
 import serial
 import time
 import threading
+import sys
 
-# Configurações da porta serial
-PORTA_SERIAL = "/dev/ttyACM0"
+PORTA_SERIAL = sys.argv[1] if len(sys.argv) > 1 else "/dev/ttyACM0"
 BAUDRATE = 115200
 
 # Variável de controle para as threads

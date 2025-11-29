@@ -38,29 +38,12 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-// --- Definições do Payload de Telemetria (deve ser IDÊNTICO ao do nó de campo) ---
-typedef struct __attribute__((packed)) {
-    uint32_t packet_id;
-    int32_t  latitude_raw;
-    int32_t  longitude_raw;
-    int32_t  altitude_raw;
-    uint16_t voltage_mv;
-    int8_t   radio_temp_c;
-    uint8_t  sats_and_fix;
-} LoRaPayload_t;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define TELEMETRY_PAYLOAD_SIZE sizeof(LoRaPayload_t)
 
-// --- Parâmetros LoRa (IDÊNTICOS aos da Placa 1) ---
-#define RF_FREQUENCY                                915000000 // Hz
-#define TX_OUTPUT_POWER                             22        // dBm (Não usado para TX, mas mantido por consistência)
-#define LORA_BANDWIDTH                              0         // 0: 125 kHz
-#define LORA_SPREADING_FACTOR                       10        // SF10
-#define LORA_CODINGRATE                             4         // 4: 4/8
-#define LORA_PREAMBLE_LENGTH                        8
 /* USER CODE END PD */
 
 /* Private variables ---------------------------------------------------------*/
