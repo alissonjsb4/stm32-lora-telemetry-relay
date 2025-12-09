@@ -74,7 +74,7 @@ const RadioLoRaBandwidths_t Bandwidths[] = { LORA_BW_125, LORA_BW_250, LORA_BW_5
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 void Radio_Init(void);
-void ProcessTelemetryResponse(uint8_t* buffer, uint8_t size);
+void ProcessTelemetryResponse(uint8_t* buffer, uint8_t size, PacketStatus_t packet_info);
 void RadioOnDioIrq(RadioIrqMasks_t radioIrq);
 /* USER CODE END PFP */
 
@@ -104,8 +104,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   BSP_LED_Init(LED_GREEN);
 
-  //printf("\r\n--- LoRa_Base (ESTACAO BASE) ---\r\n");
-  //printf("Modo: Receptor Puro\r\n");
+  printf("\r\n--- LoRa_Base (ESTACAO BASE) ---\r\n");
+  printf("Modo: Receptor Puro\r\n");
 
   Radio_Init();
   //printf("Radio LoRa inicializado. Aguardando telemetria...\r\n");
@@ -168,7 +168,7 @@ void SystemClock_Config(void)
 /**
   * @brief Decodifica e exibe o pacote de telemetria recebido.
   */
-void ProcessTelemetryResponse(uint8_t* buffer, uint8_t size)
+void ProcessTelemetryResponse(uint8_t* buffer, uint8_t size, PacketStatus_t packet_info)
 {
     if (size != TELEMETRY_PAYLOAD_SIZE) {
         //printf("ERRO: Pacote com tamanho inesperado: %d (esperado: %d)\r\n", size, TELEMETRY_PAYLOAD_SIZE);
@@ -185,7 +185,7 @@ void ProcessTelemetryResponse(uint8_t* buffer, uint8_t size)
     bool gpsFixOK = (telemetry_data.sats_and_fix >> 7) & 0x01;
     uint8_t satCount = telemetry_data.sats_and_fix & 0x7F;
 
-    printf("{\"ID\": %lu, \"Lat\": %.7f, \"Lon\": %.7f, \"Alt\": %.2f, \"Volt\": %u, \"Temp\": %d, \"GPS\": \"%s\", \"Sats\": %u}\r\n", telemetry_data.packet_id, latitude, longitude, altitude_m, telemetry_data.voltage_mv, telemetry_data.radio_temp_c, gpsFixOK ? "FIX OK" : "NO FIX", satCount);
+    printf("{\"ID\": %lu, \"Lat\": %.7f, \"Lon\": %.7f, \"Alt\": %.2f, \"Volt\": %u, \"Temp\": %d, \"GPS\": \"%s\", \"Sats\": %u, \"RSSI\": %d, \"SNR\": %d}\r\n", telemetry_data.packet_id, latitude, longitude, altitude_m, telemetry_data.voltage_mv, telemetry_data.radio_temp_c, gpsFixOK ? "FIX OK" : "NO FIX", satCount, packet_info.Params.LoRa.RssiPkt, packet_info.Params.LoRa.SnrPkt);
 }
 
 /**
@@ -247,7 +247,7 @@ void RadioOnDioIrq(RadioIrqMasks_t radioIrq)
                 //printf("\r\nPacote LoRa Recebido! RSSI: %d dBm, SNR: %d\r\n",
                        //packetStatus.Params.LoRa.RssiPkt, packetStatus.Params.LoRa.SnrPkt);
 
-                ProcessTelemetryResponse(lora_rx_buffer, received_size);
+                ProcessTelemetryResponse(lora_rx_buffer, received_size, packetStatus);
 
                 // Volta para o modo de recepção para aguardar o próximo pacote
                 SUBGRF_SetRx(0);
