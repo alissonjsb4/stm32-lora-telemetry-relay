@@ -87,11 +87,11 @@ int main(void)
   /* USER CODE BEGIN 2 */
   BSP_LED_Init(LED_GREEN);
 
-  //printf("\r\n--- LoRa_Base (ESTACAO BASE) ---\r\n");
-  //printf("Modo: Receptor Puro\r\n");
+  printf("\r\n--- LoRa_Base (ESTACAO BASE) ---\r\n");
+  printf("Modo: Receptor Puro\r\n");
 
   Radio_Init();
-  //printf("Radio LoRa inicializado. Aguardando telemetria...\r\n");
+  printf("Radio LoRa inicializado. Aguardando telemetria...\r\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -188,7 +188,7 @@ void Radio_Init(void)
     modulationParams.Params.LoRa.SpreadingFactor = LORA_SPREADING_FACTOR;
     modulationParams.Params.LoRa.Bandwidth = Bandwidths[LORA_BANDWIDTH];
     modulationParams.Params.LoRa.CodingRate = LORA_CODINGRATE;
-    modulationParams.Params.LoRa.LowDatarateOptimize = 0x00;
+    modulationParams.Params.LoRa.LowDatarateOptimize = LORA_LOWDR_OPT;
     SUBGRF_SetModulationParams(&modulationParams);
 
     // Configuração para receber pacotes de telemetria

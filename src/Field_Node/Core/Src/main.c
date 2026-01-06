@@ -242,8 +242,7 @@ void ProcessByte(uint8_t receivedByte)
           packet_processed_this_dma_cycle = true;
 
           printf("Pacote da radiosonda validado. Transmitindo via LoRa...\r\n");
-          BSP_LED_Toggle(LED_GREEN); // MUDANÇA 3: O LED só pisca aqui, como resposta a um evento.
-
+          BSP_LED_On(LED_GREEN);
           TransmitTelemetry();
 
         } else {
@@ -251,6 +250,7 @@ void ProcessByte(uint8_t receivedByte)
                  calculatedChecksum, receivedChecksum);
         }
         currentState = AWAITING_SYNC;
+        BSP_LED_Off(LED_GREEN);
       }
       break;
   }
@@ -305,7 +305,7 @@ void Radio_Init(void)
     modulationParams.Params.LoRa.SpreadingFactor = LORA_SPREADING_FACTOR;
     modulationParams.Params.LoRa.Bandwidth = Bandwidths[LORA_BANDWIDTH];
     modulationParams.Params.LoRa.CodingRate = LORA_CODINGRATE;
-    modulationParams.Params.LoRa.LowDatarateOptimize = 0x00;
+    modulationParams.Params.LoRa.LowDatarateOptimize = LORA_LOWDR_OPT;
     SUBGRF_SetModulationParams(&modulationParams);
 
     // Habilita apenas a interrupção de transmissão concluída e timeout

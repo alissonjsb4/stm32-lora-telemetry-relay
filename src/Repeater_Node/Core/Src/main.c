@@ -153,6 +153,7 @@ void SystemClock_Config(void)
   */
 void ProcessTelemetryResponse(uint8_t* buffer, uint8_t size)
 {
+	printf("FFFFFFFFFFFFFFFFFF\r\n");
     if (size != TELEMETRY_PAYLOAD_SIZE) {
         //printf("ERRO: Pacote com tamanho inesperado: %d (esperado: %d)\r\n", size, TELEMETRY_PAYLOAD_SIZE);
         return;
@@ -221,6 +222,7 @@ void RadioOnDioIrq(RadioIrqMasks_t radioIrq)
             {
                 uint8_t received_size = 0;
                 //PacketStatus_t packetStatus;
+                printf("Jevous!\r\n");
 
                 BSP_LED_Toggle(LED_GREEN);
 
@@ -228,7 +230,7 @@ void RadioOnDioIrq(RadioIrqMasks_t radioIrq)
                 //SUBGRF_GetPacketStatus(&packetStatus);
 
                 //printf("\r\nPacote LoRa Recebido! RSSI: %d dBm, SNR: %d\r\n",
-                       //packetStatus.Params.LoRa.RssiPkt, packetStatus.Params.LoRa.SnrPkt);
+                      //packetStatus.Params.LoRa.RssiPkt, packetStatus.Params.LoRa.SnrPkt);
 
                 // Repeater Node wont process packets today :D
                 //ProcessTelemetryResponse(lora_rx_buffer, received_size);
@@ -240,16 +242,17 @@ void RadioOnDioIrq(RadioIrqMasks_t radioIrq)
 
         case IRQ_TX_DONE:
             // Volta para o modo de recepção para aguardar o próximo pacote
+        	printf("IRQ_TX_DONE!\r\n");
             SUBGRF_SetRx(0);
             break;
 
         case IRQ_CRC_ERROR:
-            //printf("WARN: Erro de CRC no pacote LoRa.\r\n");
+            printf("WARN: Erro de CRC no pacote LoRa.\r\n");
             SUBGRF_SetRx(0); // Volta a escutar
             break;
 
         case IRQ_RX_TX_TIMEOUT:
-            //printf("WARN: Timeout de recepção LoRa.\r\n");
+            printf("WARN: Timeout de recepção LoRa.\r\n");
             SUBGRF_SetRx(0); // Volta a escutar
             break;
 

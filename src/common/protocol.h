@@ -57,8 +57,9 @@ typedef struct __attribute__((packed)) {
 #define RF_FREQUENCY                                915000000 // Hz
 #define TX_OUTPUT_POWER                             22        // dBm
 #define LORA_BANDWIDTH                              0         // 0: 125 kHz
-#define LORA_SPREADING_FACTOR                       10        // SF10
+#define LORA_SPREADING_FACTOR                       12        // SF10
 #define LORA_CODINGRATE                             4         // 4: 4/8
 #define LORA_PREAMBLE_LENGTH                        8
+#define LORA_LOWDR_OPT                              0x01      // Default: 0x00. For SF>10, 0x01
 
 #endif
