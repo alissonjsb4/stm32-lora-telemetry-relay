@@ -78,6 +78,7 @@ uint8_t calculate_checksum(uint8_t* data, int length);
 void RadioOnDioIrq(RadioIrqMasks_t radioIrq);
 void Start_DMA_Reception_With_Interrupts(void);
 void Reset_UART_And_Parser_State(void); // <-- ADD THIS LINE
+void PrintBufferHex(uint8_t *buf, uint16_t len);
 /* USER CODE END PFP */
 
 /**
@@ -209,7 +210,19 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 }
 
 /**
-  * @brief Processa cada byte individual da radiosonda usando uma máquina de estados.
+  * @brief Helper to dump buffer content for debugging
+  */
+void PrintBufferHex(uint8_t *buf, uint16_t len)
+{
+    printf("   [DUMP]: ");
+    for(int i=0; i<len; i++) {
+        printf("%02X ", buf[i]);
+    }
+    printf("\r\n");
+}
+
+/**
+  * @brief Processa cada byte individual da radiosonda com DEBUG ATIVO.
   */
 void ProcessByte(uint8_t receivedByte)
 {
@@ -217,8 +230,17 @@ void ProcessByte(uint8_t receivedByte)
   {
     case AWAITING_SYNC:
       if (receivedByte == SYNC_WORD) {
+        printf("[DEBUG] Sync Word (0xAA) detected! Starting Payload capture.\r\n");
         byteCounter = 0;
         currentState = RECEIVING_PAYLOAD;
+      }
+      else {
+        // ERROR: We are waiting for 0xAA but received something else.
+        // This usually happens if:
+        // 1. Baud rates mismatch.
+        // 2. We joined the stream in the middle of a packet.
+        // 3. Noise on the UART line.
+        printf("[SYNC FAIL] Ignored byte: 0x%02X (Waiting for 0xAA)\r\n", receivedByte);
       }
       break;
 
@@ -227,6 +249,7 @@ void ProcessByte(uint8_t receivedByte)
         payloadBuffer[byteCounter++] = receivedByte;
       }
       if (byteCounter >= TELEMETRY_PAYLOAD_SIZE) {
+        // Transition to Checksum immediately after filling buffer
         currentState = AWAITING_CHECKSUM;
       }
       break;
@@ -241,14 +264,23 @@ void ProcessByte(uint8_t receivedByte)
           telemetry_available = true;
           packet_processed_this_dma_cycle = true;
 
-          printf("Pacote da radiosonda validado. Transmitindo via LoRa...\r\n");
           BSP_LED_On(LED_GREEN);
+          printf("[SUCCESS] Packet Validated. ID: %lu | V: %u mV\r\n",
+                 latest_telemetry.packet_id, latest_telemetry.voltage_mv);
+
           TransmitTelemetry();
 
         } else {
-          printf("Falha no Checksum da radiosonda! Esperado: 0x%02X, Recebido: 0x%02X\r\n",
-                 calculatedChecksum, receivedChecksum);
+          // CRITICAL DEBUGGING INFO
+          printf("\r\n--- CHECKSUM FAILURE ---\r\n");
+          printf("Expected (Calc): 0x%02X | Received: 0x%02X\r\n", calculatedChecksum, receivedChecksum);
+          printf("Payload Content causing failure:\r\n");
+          PrintBufferHex(payloadBuffer, TELEMETRY_PAYLOAD_SIZE);
+          printf("------------------------\r\n");
         }
+
+        // Reset state
+        printf("[DEBUG] Resetting State Machine to AWAITING_SYNC\r\n");
         currentState = AWAITING_SYNC;
         BSP_LED_Off(LED_GREEN);
       }
