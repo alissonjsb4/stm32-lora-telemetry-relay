@@ -1,112 +1,58 @@
-# STM32 LoRa Telemetry Relay System
+# stm32-lora-telemetry-relay
 
-A robust firmware project for a dual-node STM32 NUCLEO-WL55JC1 system designed to capture, validate, and retransmit data from a radiosonde via LoRa for long-range telemetry. This project was developed as a technical study in embedded systems and wireless communication.
+Enlace de telemetria de longo alcance para radiossonda com duas placas
+NUCLEO-WL55JC1: o nó de campo captura o stream serial da sonda, valida os pacotes
+e os retransmite por LoRa; a estação-base recebe, decodifica e entrega o dado
+formatado ao PC pela serial. Projeto em dupla.
 
-## Key Features
+## Uso
 
-- **Robust Hardware Platform:** Utilizes two **STM32 NUCLEO-WL55JC1** development boards, which integrate a powerful microcontroller and a LoRa transceiver on a single chip.
-- **Efficient Firmware:** Employs **DMA in circular mode** for non-blocking UART data reception from the radiosonde, freeing up the CPU for other tasks.
-- **Reliable Data Parsing:** A **Finite State Machine (FSM)** validates incoming data packets using a `SYNC_WORD` and `checksum` to ensure data integrity before retransmission.
-- **Low-Power, Event-Driven Receiver:** The base station is fully interrupt-driven, operating in a low-power sleep mode until a LoRa packet is received, making it highly efficient.
-- **Layered Software Architecture:** The firmware is built on STMicroelectronics' **HAL (Hardware Abstraction Layer)** and **BSP (Board Support Package)**, ensuring clean, portable, and maintainable code.
+Hardware: 2× STM32 NUCLEO-WL55JC1, antenas de 915 MHz e uma fonte serial a
+19200 baud (radiossonda ou equivalente).
 
-## Project Structure
+1. Importar `src/Field_Node/` e `src/Base_Station/` no STM32CubeIDE e compilar.
+2. Gravar cada firmware na sua placa.
+3. Abrir terminal serial na estação-base a 115200 baud para ver a telemetria
+   decodificada (ID, posição, altitude, tensão, temperatura, status de GPS).
 
-The repository is organized into a clean, modular structure:
+## Funcionamento
 
-```
-/
-├── README.md
-├── src/
-│   ├── Field_Node/
-│   ├── Base_Station/
-│   └── common/
-│       └── protocol.h
-├── docs/
-│   ├── Relatorio_Tecnico.pdf
-│   └── images/
-└── .gitignore
-```
+- Nó de campo: recepção UART por DMA em modo circular, sem bloquear a CPU; uma
+  máquina de estados localiza o pacote por `SYNC_WORD` e valida o checksum antes
+  de transmitir por LoRa.
+- Estação-base: orientada a interrupção, em recepção contínua; decodifica o
+  payload binário e formata para o PC via USART2.
+- Definição do pacote compartilhada em `src/common/protocol.h`.
 
-## System Architecture
+| Parâmetro LoRa | Valor |
+|---|---|
+| Frequência | 915,0 MHz |
+| Spreading factor | 10 |
+| Largura de banda | 125 kHz |
+| Coding rate | 4/8 |
+| Potência de transmissão | 22 dBm |
+| Header | implícito, tamanho fixo |
 
-The system consists of two main nodes that work in tandem:
+## Resultados
 
-1.  **Node 1: Field Node (Transmitter)**
-    * Connects directly to a radiosonde via `USART1` (19200 baud) to capture a continuous stream of telemetry data.
-    * Parses the data stream using an FSM to identify and validate complete data packets.
-    * Valid packets, verified by a checksum, are transmitted wirelessly using the onboard LoRa radio.
+Enlace ponta a ponta validado em bancada: pacotes da radiossonda aprovados no
+checksum, retransmitidos e decodificados na base com RSSI −50 dBm e SNR 9 na
+configuração de teste. Relatório técnico completo em `docs/`.
 
-2.  **Node 2: Base Station (Receiver)**
-    * Acts as a LoRa gateway, remaining in a continuous reception mode.
-    * Upon receiving a valid LoRa packet, it decodes the binary payload into human-readable data.
-    * Sends the formatted data to a connected PC via a Virtual COM Port (`USART2` at 115200 baud) for real-time monitoring.
+## Notas
 
-## LoRa Communication Parameters
+- SF 10 com CR 4/8 privilegia alcance e robustez sobre taxa de dados — payload
+  curto de telemetria não precisa de banda.
+- O modo de sleep do rádio no nó de campo ficou como pendência para operação a
+  bateria.
 
-To ensure a robust and long-range communication link, the following LoRa parameters were configured for both nodes:
+## Estrutura
 
-| Parameter               | Value      |
-|:------------------------|:-----------|
-| **Frequency** | 915.0 MHz  |
-| **Spreading Factor (SF)** | 10         |
-| **Bandwidth (BW)** | 125 kHz    |
-| **Coding Rate (CR)** | 4/8        |
-| **Transmission Power** | 22 dBm     |
-| **Packet Mode** | Fixed Size (Implicit Header) |
+    src/Field_Node/      transmissor: captura UART/DMA, FSM de validação, LoRa TX
+    src/Base_Station/    receptor: LoRa RX por interrupção, decodificação, USART2
+    src/common/          protocol.h compartilhado entre os nós
+    docs/                relatório técnico (PDF)
 
-## How to Use
+## Autores
 
-1.  **Hardware Required:**
-    * 2x STM32 NUCLEO-WL55JC1 development boards
-    * 2x 915 MHz Antennas
-    * A radiosonde or other serial data source (19200 baud)
-
-2.  **Setup:**
-    * Clone this repository.
-    * Open **STM32CubeIDE** and import the two projects located in `src/Field_Node/` and `src/Base_Station/`.
-    * Compile both projects.
-    * Flash the `Field_Node` firmware onto the first board and `Base_Station` onto the second.
-
-3.  **Execution:**
-    * Connect the Field Node to the radiosonde.
-    * Connect the Base Station to a PC and open a serial terminal (like PuTTY) on the corresponding COM port at 115200 baud to view the received telemetry data.
-
-## Validation & Results
-
-The system was fully tested, demonstrating a successful end-to-end communication link. The following are sample outputs captured from the serial terminals of both nodes during a test run.
-
-**Transmitter (Field Node) Terminal Output:**
-```
-Checksum OK. Pacote da radiosonda validado.
-Transmitindo pacote LoRa ID: 1
-LoRa TX Done.
-```
-
-**Receiver (Base Station) Terminal Output:**
-```
-Pacote LoRa Recebido! RSSI: -50 dBm, SNR: 9
-
----[ PACOTE DE TELEMETRIA DECODIFICADO ]---
-ID do Pacote: 1
-Latitude:     -3.740123
-Longitude:    -38.570456
-Altitude:     50.12 m
-Voltagem:     3300 mV
-Temp. Radio:  25 C
-Status GPS:   FIX OK (Satelites: 8)
-```
-
-## Future Work & Roadmap
-
-This project serves as a solid foundation for a field-ready telemetry system. Recommended next steps include:
-
-- [ ] **Power Optimization:** Implement the final low-power sleep modes (`SUBGRF_SetSleep`) on the Field Node to maximize battery life.
-- [ ] **Data Visualization:** Develop a GUI or logging script on the PC to better visualize, store, and analyze the incoming telemetry data.
-- [ ] **Field Testing:** Conduct real-world, open-field range tests to validate the performance and maximum range of the LoRa link.
-- [ ] **Bi-directional Communication:** Implement a command system to send configuration messages from the Base Station back to the Field Node.
-
-## Authors
-
-- Alisson Jaime Sales Barros
-- Danilo Mota Alencar Filho
+Alisson Jaime Sales Barros e Danilo Mota Alencar Filho.
