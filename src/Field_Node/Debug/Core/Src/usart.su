@@ -1,2 +1,0 @@
-../Core/Src/usart.c:36:6:MX_USART1_UART_Init	8	static
-../Core/Src/usart.c:80:6:MX_USART2_UART_Init	8	static

@@ -1,58 +1,51 @@
 # stm32-lora-telemetry-relay
 
-Enlace de telemetria de longo alcance para radiossonda com duas placas
-NUCLEO-WL55JC1: o nó de campo captura o stream serial da sonda, valida os pacotes
-e os retransmite por LoRa; a estação-base recebe, decodifica e entrega o dado
-formatado ao PC pela serial. Projeto em dupla.
+Long-range telemetry link for an RS41 radiosonde, built on STM32WL55 boards (NUCLEO-WL55JC1). The sonde sends its data over serial to a field node, which validates each frame and relays it over LoRa at 915 MHz; a base station receives it, decodes it and prints it to a PC. A repeater node for longer paths is in progress.
 
-## Uso
+## Usage
 
-Hardware: 2× STM32 NUCLEO-WL55JC1, antenas de 915 MHz e uma fonte serial a
-19200 baud (radiossonda ou equivalente).
+Hardware: two NUCLEO-WL55JC1 boards (three with the repeater), 915 MHz antennas, and an RS41 or any source sending the telemetry frame over serial at 19200 baud.
 
-1. Importar `src/Field_Node/` e `src/Base_Station/` no STM32CubeIDE e compilar.
-2. Gravar cada firmware na sua placa.
-3. Abrir terminal serial na estação-base a 115200 baud para ver a telemetria
-   decodificada (ID, posição, altitude, tensão, temperatura, status de GPS).
+1. Import `src/Field_Node/` and `src/Base_Station/` (and `src/Repeater_Node/` if used) into STM32CubeIDE and build.
+2. Flash each firmware to its board.
+3. Open a serial terminal on the base station at 115200 baud, or run `python teste.py /dev/ttyACM0` (needs pyserial), to see the decoded telemetry: packet ID, position, altitude, voltage, temperature and GPS status.
 
-## Funcionamento
+## How it works
 
-- Nó de campo: recepção UART por DMA em modo circular, sem bloquear a CPU; uma
-  máquina de estados localiza o pacote por `SYNC_WORD` e valida o checksum antes
-  de transmitir por LoRa.
-- Estação-base: orientada a interrupção, em recepção contínua; decodifica o
-  payload binário e formata para o PC via USART2.
-- Definição do pacote compartilhada em `src/common/protocol.h`.
+- Field node: UART reception by DMA in circular mode, so the CPU never blocks; a state machine finds each frame by its sync word (`0xAA`) and checks the checksum before transmitting over LoRa.
+- Base station: interrupt-driven continuous receive; it decodes the binary payload and formats it for the PC over USART2.
+- Repeater node: receives a packet and sends it again unchanged, without decoding it.
+- `src/common/protocol.h`, shared by all nodes, holds the telemetry payload, the LoRa settings and a command format (read, write, execute, request) for remote control of the sonde.
+- `src/UHF_LoRa/` is the sonde side: a fork of the RS41HUP amateur-radio firmware (GPL v2), with its upstream README.
 
-| Parâmetro LoRa | Valor |
+| LoRa parameter | Value |
 |---|---|
-| Frequência | 915,0 MHz |
-| Spreading factor | 10 |
-| Largura de banda | 125 kHz |
+| Frequency | 915.0 MHz |
+| Spreading factor | 12 |
+| Bandwidth | 125 kHz |
 | Coding rate | 4/8 |
-| Potência de transmissão | 22 dBm |
-| Header | implícito, tamanho fixo |
+| TX power | 22 dBm |
 
-## Resultados
+## Results
 
-Enlace ponta a ponta validado em bancada: pacotes da radiossonda aprovados no
-checksum, retransmitidos e decodificados na base com RSSI −50 dBm e SNR 9 na
-configuração de teste. Relatório técnico completo em `docs/`.
+End-to-end link validated on the bench in August 2025: sonde frames passed the checksum, were relayed and were decoded at the base with RSSI -50 dBm and SNR 9. Full write-up, in Portuguese, in `docs/`.
 
-## Notas
+## Notes
 
-- SF 10 com CR 4/8 privilegia alcance e robustez sobre taxa de dados — payload
-  curto de telemetria não precisa de banda.
-- O modo de sleep do rádio no nó de campo ficou como pendência para operação a
-  bateria.
+- A high spreading factor with coding rate 4/8 trades data rate for range and robustness; a short telemetry payload doesn't need bandwidth. The bench result above predates the move from SF 10 to SF 12 in January 2026.
+- Radio sleep on the field node is still pending for battery operation.
+- The repeater is an MVP: it relays packets as received, and the call that would decode them on that node is still commented out.
 
-## Estrutura
+## Layout
 
-    src/Field_Node/      transmissor: captura UART/DMA, FSM de validação, LoRa TX
-    src/Base_Station/    receptor: LoRa RX por interrupção, decodificação, USART2
-    src/common/          protocol.h compartilhado entre os nós
-    docs/                relatório técnico (PDF)
+    src/Field_Node/      transmitter: UART/DMA capture, validation state machine, LoRa TX
+    src/Base_Station/    receiver: interrupt-driven LoRa RX, decoding, USART2 to the PC
+    src/Repeater_Node/   repeater (MVP)
+    src/common/          protocol.h shared by all nodes
+    src/UHF_LoRa/        RS41 firmware fork (RS41HUP, GPL v2)
+    teste.py             serial console for the base station
+    docs/                technical report (PDF, Portuguese)
 
-## Autores
+## Authors
 
-Alisson Jaime Sales Barros e Danilo Mota Alencar Filho.
+Alisson Jaime Sales Barros and Danilo Mota Alencar Filho, with contributions from [@penafortemarco](https://github.com/penafortemarco) (repeater node, shared protocol header).

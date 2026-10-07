@@ -1,0 +1,16 @@
+# STM32CubeIDE and CMake build output
+Debug/
+Release/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+*.o
+*.d
+*.su
+*.cyclo
+*.obj
+*.elf
+*.bin
+*.hex
+*.map
+*.list
